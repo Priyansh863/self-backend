@@ -1,0 +1,25 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "extends": ["plugin:@typescript-eslint/recommended"],
+    "parserOptions": { "ecmaVersion": 2018, "sourceType": "module" },
+    "rules": {
+      "no-console": [2, { "allow": ["warn","log", "error"] }],
+      "quotes": ["error", "double"],
+      "eqeqeq": [
+        "warn",
+        "smart"
+    ],
+    "no-debugger": "warn",
+    "no-unused-expressions": "warn",
+    "semi": [
+      "error",
+      "always"
+  ],
+  "no-empty": "off",
+  "eol-last": "error"
+  // "import-spacing": "warn",
+  // "import/no-deprecated": "warn",
+  // "indent": ["error", 4]
+     
+     }
+  }
