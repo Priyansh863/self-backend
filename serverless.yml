@@ -1,0 +1,23 @@
+service: new-test-development #Name of your App #currently working
+# service: new-test-production #Name of your App
+
+provider:
+  name: aws
+  runtime: nodejs14.x # Node JS version
+  memorySize: 512
+  timeout: 15
+  stage: ${opt:stage, 'development'} # serverless deploy --stage development/production
+  environment:
+    NODE_ENV: ${opt:stage, self:provider.stage, 'development'}
+  region: us-east-1 # AWS region   # new profile
+  # region: us-west-1 # AWS region # current working
+
+plugins:
+  - serverless-plugin-typescript
+
+functions:
+  api:
+    handler: src/index.handler
+    events:
+      - http: ANY {proxy+}
+      - http: ANY /
